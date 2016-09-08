@@ -6,9 +6,16 @@ between january 2013 and may 2016.
 The mails extracted directly from the database are registered in MIME format: we used the software TotalMailConverter to extract 
 data from these files and create .txt files.
 
-## HOWTO
+## FOLDER CODE
 
-You can download the folder "Data" to have the data and the structure of files needed to execute the following bash files.
+The folder "Code" can be downloaded to have the data and the structure of files needed to execute the following bash files.
+
+It contains 2 folders:
+- Extraction, where the extracted data will be stored
+- archivesMail, where the initial files are stored
+- Data were the text files are stored
+
+## HOWTO
 
 extractionAdresses.sh and extractionSubject.sh can be launched one after the other in a terminal with the following command:
 ./extractionAdresses.sh $PATH

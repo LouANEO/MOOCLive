@@ -14,7 +14,7 @@ It contains 5 folders:
 - TxtData (data converted in .txt)
 - Extraction (extracted data)
 - LanguageProcessing (code and data files for language processing)
-- Results (results from analysis)
+- Results (results from analyses)
 
 ## HOWTO
 

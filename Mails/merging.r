@@ -1,3 +1,13 @@
+###################################################################################################################################
+###                                                  Create a single data file                                                  ###
+###################################################################################################################################
+
+#### Inputs ####
+# folder: path of the folder containing data
+
+#### Outputs ####
+# A single data files containing all information in Extraction
+
 merging = function(folder)
 {
 	adresses = read.table(paste(folder,"/Extraction/adresses.txt",sep=""), sep="\t", header = FALSE)
@@ -13,7 +23,7 @@ merging = function(folder)
 	data = data[data[,4]!="",]	
 	data = data[which(substr(data[,4],1,1)!="D"),]	
 
-	# Transformation des dates au format JJ/MM/AAAA HH:MM:SS en 6 colonnes
+	# Convert temporal data from JJ/MM/AAAA HH:MM:SS format to 6 columns
 
 	col <- data.frame(t(matrix(
 			unlist(strsplit(as.vector(data[,4]), split = " ")), 

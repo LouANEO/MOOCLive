@@ -1,6 +1,6 @@
 subGraph = function(folder, bornes)
 {
-	source(paste(folder,"/Network/ponderation.r",sep=""))
+	source(paste(folder,"/Network/backbone.r",sep=""))
 
 	edges = read.table(paste(folder,"/Extraction/edges.txt",sep=""),sep="\t",header=TRUE)	
 	nodes = read.table(paste(folder,"/Extraction/nodes.txt",sep=""),sep="\t",header=TRUE)	

@@ -25,6 +25,6 @@ networkMail = function(folder)
 	nodes = cbind(as.data.frame(users[,1]),as.data.frame(users[,1]),as.data.frame(users[,2]))
 	colnames(nodes) = c("Id","Label","N")
 
-	write.table(nodes, paste(folder,"/Extraction/nodes.txt",sep=""), sep = "\t", col.names = TRUE, row.names=FALSE)
-	write.table(edges, paste(folder,"/Extraction/edges.txt",sep=""), sep = "\t", col.names = TRUE, row.names=FALSE)
+	write.table(nodes, paste(folder,"/Network/nodesAllNet.txt",sep=""), sep = "\t", col.names = TRUE, row.names=FALSE)
+	write.table(edges, paste(folder,"/Network/edgesAllNet.txt",sep=""), sep = "\t", col.names = TRUE, row.names=FALSE)
 }

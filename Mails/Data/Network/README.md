@@ -1,4 +1,4 @@
-### Weighting
+### Extract the backbone
 The full network has many edges, some of them representing a weak link of a single occurence of posting in the same thread for
 2 individuals: we use the code backbone.r to identify the most significant links and extract the backbone of this network.
 

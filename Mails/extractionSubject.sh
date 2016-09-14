@@ -2,12 +2,12 @@
 
 rm $1/sub.txt 
 
-for folder in $(ls $1/Data/)
+for folder in $(ls $1/TxtData/)
 do
 
-	for file in $(ls $1/Data/$folder)
+	for file in $(ls $1/TxtData/$folder)
 	do
-		resul=$(grep "Subject: " -m 1 $1/Data/$folder/$file)
+		resul=$(grep "Subject: " -m 1 $1/TxtData/$folder/$file)
 		prefix="Subject: "
 		resul=${resul#$prefix}
 

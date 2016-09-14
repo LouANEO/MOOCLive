@@ -3,17 +3,18 @@ between january 2013 and may 2016.
 
 ## CONVERSION
 
-The mails extracted directly from the database are registered in MIME format: we used the software TotalMailConverter to extract 
-data from these files and create .txt files.
+The mails extracted directly from the database are registered in MIME format: we used the software TotalMailConverter to extract data from these files and create .txt files.
 
-## FOLDER "CODE"
+## FOLDER "DATA"
 
-The folder "Code" can be downloaded to have the data and the structure of files needed to execute the following bash files.
+The folder "Data" can be downloaded to have the data and the structure of files needed to execute the following bash files.
 
-It contains 2 folders:
-- Extraction, where the extracted data will be stored
-- archivesMail, where the initial files are stored
-- Data were the text files are stored
+It contains 5 folders:
+- archivesMail (the initial data files)
+- TxtData (data converted in .txt)
+- Extraction (extracted data)
+- LanguageProcessing (code and data files for language processing)
+- Results (results from analysis)
 
 ## HOWTO
 
@@ -21,7 +22,7 @@ It contains 2 folders:
 extractionAdresses.sh and extractionSubject.sh can be launched one after the other in a terminal with the following command:
 ./extractionAdresses.sh $PATH
 ./extractionSubject.sh $PATH
-(where $PATH is the path of the folder "Code" extracted previously)
+(where $PATH is the path of the folder "Data" extracted previously)
 
 They generate the following files:
 - adresses.txt, containing 3 columns ($Folder $File $Sender)
@@ -37,12 +38,21 @@ Function merge.r merges the 3 files in a single dataset data.txt, with following
 - Sender adress
 - Date in 6 columns DD\tMM\tYYYY\tHH\tMM\tSS
 - Subject 
-The function takes one input: a string with the path of folder "Code")
+The function takes one input: a string with the path of folder "Data")
 
 Data are ordered by date of emission
 
 ### Graph generation
-function networkMail.r generates 2 files "nodes.txt" and "edges.txt", containing the nodes and the degs of the network generated with data.
+function networkMail.r generates 2 files "nodesAllNet.txt" and "edgesAllNet.txt", containing the nodes and the degs of the network generated with data.
+It takes the path of folder "Data" as an input.
 
-It takes the path of folder "Code" as an input
+The whole network is hardly interpretable: subGraph.r generates a smaller network composed with the most significant edges only. It creates "nodesWeighted.txt" and "edgesWeighted.txt" in folder Network.
+As previous function, it takes the path of folder "Data" as an input.
+
+Gephi can be used to visualize both graphs
+
+### LanguageProcessing
+languageProcessing.r calls functions in folder LanguageProcessing to generate word clouds of the words used by users regrouped in the same community by community detection performed on the smaller network identified previously.
+It take the path to folder Data, the number of the group of interest and the language of the study as an input.
+
 

@@ -14,6 +14,9 @@ merging = function(folder)
 	dates = read.table(paste(folder,"/Extraction/dates.txt",sep=""), sep="\t", header = FALSE)
 	subject = read.table(paste(folder,"/Extraction/sub.txt",sep=""), sep="\t", header = FALSE)
 
+	month = read.table(paste(folder, "/DataMining/month.txt", sep=""), sep="\t", header=FALSE)
+	year = read.table(paste(folder, "/DataMining/year.txt", sep=""), sep="\t", header=FALSE)
+
 	# Create a single dataset containing all data
 
 	data = cbind(as.data.frame(adresses[,1:2]),as.data.frame(adresses[,3]),as.data.frame(dates[,3]),as.data.frame(subject[,3]))
@@ -43,13 +46,15 @@ merging = function(folder)
 
 	# Order datas by date of emission
 
+	YearInSecond = year[match(as.integer(data$Year),year[,1]),2] * 24 * 60 *60
+	MonthInSecond = month[cbind(as.integer(data$Month),year[match(as.integer(data$Year),year[,1]),3])] * 24 * 60 * 60
+
 	s = sort.int(as.integer(data$Second) 
 			+ as.integer(data$Minute) * 60
 			+ as.integer(data$Hour) * 60 * 60
 			+ as.integer(data$Day) * 60 *60 * 24
-			+ as.integer(data$Month) * 60 *60 * 24 * 31
-			+ as.integer(data$Year) * 60 * 60 * 24 * 31 * 366, index.return = TRUE)[2]$ix
-	data = data[s,]
+			+ MonthInSecond
+			+ YearInSecond)[2]$ix
 
 	# Write the data in a file
 

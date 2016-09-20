@@ -1,3 +1,14 @@
+###################################################################################################################################
+###              Global function to evaluate the aggregated number of posts for each subject (by week and month)                ###
+###################################################################################################################################
+
+#### Inputs ####
+# folder: path of the folder containing data
+
+#### Outputs ####
+# Two graphs and two text files of the aggregated number of posts for each thread subject (by week and by month) in Results
+# A list of thread files ordered by the reverse number of posts in the thread
+
 statTemporalSubject = function(folder)
 {
 	source(paste(folder,"/DataMining/statSubjectI.r",sep=""))
@@ -15,6 +26,7 @@ statTemporalSubject = function(folder)
 
 	datesInSecond = as.integer(data$Second) + as.integer(data$Minute) * 60 + as.integer(data$Hour) * 60 * 60 + as.integer(data$Day) * 60 *60 * 24 + monthInSecond + yearInSecond
 
+	# Find the threads and make a list of their subjects
 	tempSub = aggregate(rep(1,length(data[,1])),list(data$Subject),sum)
 	tempSub = tempSub[tempSub[,2]>1,]
 	tempSub = tempSub[rev(sort.int(tempSub[,2],index.return=TRUE)[2]$ix),]
@@ -52,7 +64,10 @@ statTemporalSubject = function(folder)
 
 	for(i in 1:length(sub))
 	{
+		# Create a directory for the thread
 		dir.create(paste(folder,"/Results/Subject: ",i,sep=""))
+		
+		# Evaluate the number of posts in thread number i for each month
 		resul = statSubjectI(folder,sub[i])
 		
 		jpeg(paste(folder,"/Results/Subject: ",i, "/numberOfPostsByMonth.jpg", sep = ""), height = 500, width = 1200, pointsize = 16)
@@ -89,8 +104,9 @@ statTemporalSubject = function(folder)
 
 	for(i in 1:length(sub))
 	{
+		# Evaluate the number of posts in thread number i for each month
 		resul = statSubjectI(folder,sub[i])
-		
+
 		jpeg(paste(folder,"/Results/Subject: ",i, "/numberOfPostsByWeek.jpg", sep = ""), height = 600, width = 1800, pointsize = 14)
 			par(mar=c(5.9,4.1,2,2.1))
 			plot(weekTot[1:(l-1)], resul$aggWeekTot[1:(l-1)], xaxt=  'n', type = 'l', xlab = '', ylab = 'Number of posts')

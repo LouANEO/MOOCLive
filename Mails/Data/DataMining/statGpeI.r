@@ -1,3 +1,13 @@
+###################################################################################################################################
+###                           Aggregate the number of posts by member of group i (by week and month)                            ###
+###################################################################################################################################
+
+#### Inputs ####
+# folder: path of the folder containing data
+
+#### Outputs ####
+# A list of two vectors with the aggregated number of posts by group i (by month and by week)
+
 statGpeI = function(folder, gpe)
 {
 	################# Data dy date Manipulation #################
@@ -7,6 +17,7 @@ statGpeI = function(folder, gpe)
 	year = read.table(paste(folder,"/DataMining/year.txt",sep=""),sep="\t",header=FALSE)
 	month = read.table(paste(folder,"/DataMining/month.txt",sep=""),sep="\t",header=FALSE)
 
+	# Select the posts by group i
 	vec = rep(1,length(data[,1]))
 	vec[which(is.na(match(data[,9],unique(groupes[groupes[,4] == gpe,1]))))]=0
 
@@ -41,6 +52,7 @@ statGpeI = function(folder, gpe)
 	tabMonth = rbind(monthPrev, tabMonth[indPrev:(length(tabMonth[,2])),])
 	monthTot = unique(month[cbind(as.integer(tabMonth[,1]), year[match(as.integer(tabMonth[,2]), year[,1]), 3])] + year[match(as.integer(tabMonth[,2]), year[,1]), 2])
 
+	# The aggregation is done only on posts made by group i
 	aggMonth = aggregate(vec,list(yearInSecond + monthInSecond),sum)	
 
 	aggMonthTot = aggMonth[match(monthTot,monthData),2]
@@ -60,6 +72,8 @@ statGpeI = function(folder, gpe)
 	{
 		numWeek = c(numWeek,rev(which(mondayInDay<dataInDay[i]))[1])
 	}
+
+	# The aggregation is done only on posts made by group i
 	aggWeek = aggregate(vec,list(numWeek),sum)
 
 	weekTot = seq(1,length(monday[,1]),1)

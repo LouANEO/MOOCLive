@@ -1,3 +1,13 @@
+###################################################################################################################################
+###               Global function to evaluate the aggregated number of posts for each group (by week and month)                 ###
+###################################################################################################################################
+
+#### Inputs ####
+# folder: path of the folder containing data
+
+#### Outputs ####
+# Two graphs and two text files of the aggregated number of posts for each group (by week and by month) in Results
+
 statTemporalGroupes = function(folder)
 {
 	source(paste(folder,"/DataMining/statGpeI.r",sep=""))
@@ -13,8 +23,6 @@ statTemporalGroupes = function(folder)
 	yearInSecond = yearInDay * 24 * 60 *60
 	monthInDay = month[cbind(as.integer(data$Month),year[match(as.integer(data$Year),year[,1]),3])]
 	monthInSecond = monthInDay * 24 * 60 * 60
-
-	datesInSecond = as.integer(data$Second) + as.integer(data$Minute) * 60 + as.integer(data$Hour) * 60 * 60 + as.integer(data$Day) * 60 *60 * 24 + monthInSecond + yearInSecond
 
 	maxGpe = max(gpe[,4])
 
@@ -51,6 +59,8 @@ statTemporalGroupes = function(folder)
 
 	jpeg(paste(folder,"/Results/numberOfGroupPostsByMonth.jpg", sep = ""), height = 500, width = 1200, pointsize = 16)
 		plot(monthTot, aggMonthTot, xaxt = 'n', type='l', xlab = '', ylab = 'Number of posts', col=1)
+
+		# Evaluate the number of posts in each month for each group i
 		for(i in 1:maxGpe)
 		{
 			resul = statGpeI(folder,i)
@@ -89,6 +99,8 @@ statTemporalGroupes = function(folder)
 	jpeg(paste(folder,"/Results/numberOfGroupPostsByWeeks.jpg",sep=""), height = 600, width = 1800, pointsize = 14)
 		par(mar=c(5.9,4.1,2,2.1))
 		plot(weekTot[1:(l-1)], aggWeekTot[1:(l-1)], xaxt=  'n', type = 'l', xlab = '', ylab = 'Number of posts')
+		
+		# Evaluate the number of posts in each week for each group i
 		for(i in 1:maxGpe)
 		{
 			resul = statGpeI(folder,i)

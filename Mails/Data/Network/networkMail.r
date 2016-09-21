@@ -41,3 +41,6 @@ networkMail = function(folder)
 	write.table(nodes, paste(folder,"/Network/nodesAllNet.txt",sep=""), sep = "\t", col.names = TRUE, row.names=FALSE)
 	write.table(edges, paste(folder,"/Network/edgesAllNet.txt",sep=""), sep = "\t", col.names = TRUE, row.names=FALSE)
 }
+
+args <- commandArgs()
+networkMail(args[6])

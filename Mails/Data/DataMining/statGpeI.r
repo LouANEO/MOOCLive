@@ -13,13 +13,13 @@ statGpeI = function(folder, gpe)
 	################# Data dy date Manipulation #################
 
 	data = read.table(paste(folder,"/Extraction/data.txt",sep=""),sep="\t",header=TRUE)
-	groupes = read.table(paste(folder,"/Nodes2.csv",sep=""),sep="\t",header=TRUE)
+	groupes = read.table(paste(folder,"/Clustering//nodesClus.txt",sep=""),sep="\t",header=TRUE)
 	year = read.table(paste(folder,"/DataMining/year.txt",sep=""),sep="\t",header=FALSE)
 	month = read.table(paste(folder,"/DataMining/month.txt",sep=""),sep="\t",header=FALSE)
 
 	# Select the posts by group i
 	vec = rep(1,length(data[,1]))
-	vec[which(is.na(match(data[,9],unique(groupes[groupes[,4] == gpe,1]))))]=0
+	vec[which(is.na(match(data[,9],unique(groupes[groupes[,2] == gpe,1]))))]=0
 
 	yearInDay = year[match(as.integer(data$Year),year[,1]),2]
 	yearInSecond = yearInDay * 24 * 60 *60

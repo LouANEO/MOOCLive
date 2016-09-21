@@ -15,7 +15,7 @@ statTemporalGroupes = function(folder)
 	################# Data dy date Manipulation #################
 
 	data = read.table(paste(folder,"/Extraction/data.txt",sep=""),sep="\t",header=TRUE)
-	gpe = read.table(paste(folder,"/Nodes2.csv",sep=""),sep="\t",header=TRUE)
+	gpe = read.table(paste(folder,"/Clustering/nodesClus.txt",sep=""),sep="\t",header=TRUE)
 	year = read.table(paste(folder,"/DataMining/year.txt",sep=""),sep="\t",header=FALSE)
 	month = read.table(paste(folder,"/DataMining/month.txt",sep=""),sep="\t",header=FALSE)
 
@@ -24,7 +24,7 @@ statTemporalGroupes = function(folder)
 	monthInDay = month[cbind(as.integer(data$Month),year[match(as.integer(data$Year),year[,1]),3])]
 	monthInSecond = monthInDay * 24 * 60 * 60
 
-	maxGpe = max(gpe[,4])
+	maxGpe = max(gpe[,2])
 
 	################# Aggregation by month #################
 

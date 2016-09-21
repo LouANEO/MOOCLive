@@ -60,3 +60,7 @@ merging = function(folder)
 
 	write.table(data,paste(folder,"/Extraction/DataAll.txt",sep = ""),sep="\t",col.names=TRUE,row.names=FALSE)
 }
+
+args <- commandArgs()
+folder = args[6]
+merging(folder)

@@ -39,6 +39,7 @@ For more information, see README.md in "Data/Extraction"
 Run the command ./runDataMining.sh $PATH $BOOL (where $PATH is the path of the folder "Data" extracted previously)
 - Set $BOOL to 0 if the clustering analyses has not been performed yet and 1 in the other case
 
+
 This step performs a simple data mining analyse and study the temporal evolution of mail production.
 
 The code launches runDataMining.r located in Data/DataMining and generates several graph and text files in Data/Results
@@ -71,6 +72,7 @@ Run the command ./runLanguageProcessing.sh $PATH $GROUP $LANGUAGE
 - $PATH is the path of the folder "Data" extracted previously
 - $GROUP needs to be set to the number of the cluster analysed
 - $LANGUAGE gives the language in which the analyse is performed (french for this study)
+
 
 This step performs a text mining anlyse of the subjects of mails posted by the members of a group identified previoulsy.
 

@@ -1,3 +1,5 @@
+##Code
+
 ### Raw Extraction
 extractionAdresses.sh and extractionSubject.sh can be launched one after the other in a terminal with the following command:
 ./extractionAdresses.sh $PATH

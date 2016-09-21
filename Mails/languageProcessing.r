@@ -16,10 +16,10 @@ run = function(folder,group,language)
 	source(paste(folder,"/LanguageProcessing/traceCloud.r",sep=""))
 
 	data = read.table(paste(folder,"/Extraction/data.txt",sep=""),sep="\t",header=TRUE)
-	nodes = read.table(paste(folder,"/Nodes2.csv",sep=""),sep="\t",header=TRUE)
+	nodes = read.table(paste(folder,"/Clustering/nodesClus.txt",sep=""),sep="\t",header=TRUE)
 	stopWords = c(t(read.table(paste(folder,"/TraitementLanguage/stopWords_",language,".txt",sep=""), sep='')))
 
-	nodesGroup = nodes[nodes$modularity_class==group,]
+	nodesGroup = nodes[nodes$Group==group,]
         data = data[which(!is.na(match(data$Sender,nodesGroup[,1]))),]
 
 	resul = constructBase(data$Subject,language,stopWords)

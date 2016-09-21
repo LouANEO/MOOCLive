@@ -12,3 +12,6 @@ runDataMining = function(folder,group)
 		statTemporalGroupes(folder)
 	}
 }
+
+args <- commandArgs()
+runDataMining(args[6],args[7])

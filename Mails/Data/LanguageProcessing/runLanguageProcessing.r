@@ -27,4 +27,4 @@ runLanguageProcessing = function(folder,group,language)
 }
 
 args <- commandArgs()
-runLanguageProcessing(args[6])
+runLanguageProcessing(args[6],arg[7],arg[8])

@@ -25,3 +25,6 @@ run = function(folder,group,language)
 	resul = constructBase(data$Subject,language,stopWords)
 	traceCloud(folder,resul,group)
 }
+
+args <- commandArgs()
+languageProcessing(args[6])

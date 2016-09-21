@@ -13,7 +13,7 @@ statGpeI = function(folder, gpe)
 	################# Data dy date Manipulation #################
 
 	data = read.table(paste(folder,"/Extraction/data.txt",sep=""),sep="\t",header=TRUE)
-	groupes = read.table(paste(folder,"/Clustering//nodesClus.txt",sep=""),sep="\t",header=TRUE)
+	groupes = read.table(paste(folder,"/Clustering/nodesClus.txt",sep=""),sep="\t",header=TRUE)
 	year = read.table(paste(folder,"/DataMining/year.txt",sep=""),sep="\t",header=FALSE)
 	month = read.table(paste(folder,"/DataMining/month.txt",sep=""),sep="\t",header=FALSE)
 

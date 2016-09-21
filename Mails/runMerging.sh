@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $1
+cd $1/Extraction
 ./extractionAdresses.sh $1 
 ./extractionSubject.sh $1
 

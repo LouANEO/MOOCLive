@@ -8,7 +8,7 @@
 #### Outputs ####
 # edgesAllNet.txt and nodesAllNet.txt describing the network structure and stored in Network
 
-networkMail = function(folder)
+runNetwork = function(folder)
 {
 	data = read.table(paste(folder,"/Extraction/data.txt",sep=""),sep="\t",header=TRUE)
 
@@ -43,4 +43,4 @@ networkMail = function(folder)
 }
 
 args <- commandArgs()
-networkMail(args[6])
+runNetwork(args[6])

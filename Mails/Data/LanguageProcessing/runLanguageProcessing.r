@@ -10,7 +10,7 @@
 #### Outputs ####
 # A jpeg of the wordcloud in Results
 
-run = function(folder,group,language)
+runLanguageProcessing = function(folder,group,language)
 {
 	source(paste(folder,"/LanguageProcessing/constructBase.r",sep=""))
 	source(paste(folder,"/LanguageProcessing/traceCloud.r",sep=""))
@@ -27,4 +27,4 @@ run = function(folder,group,language)
 }
 
 args <- commandArgs()
-languageProcessing(args[6])
+runLanguageProcessing(args[6])

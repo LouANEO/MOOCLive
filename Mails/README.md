@@ -37,7 +37,7 @@ For more information, see README.md in "Data/Extraction"
 
 ### Data Mining
 Run the command ./runDataMining.sh $PATH $BOOL (where $PATH is the path of the folder "Data" extracted previously)
-Set $BOOL to 0 if the clustering analyses has not been performed yet and 1 in the other case
+- Set $BOOL to 0 if the clustering analyses has not been performed yet and 1 in the other case
 
 This step performs a simple data mining analyse and study the temporal evolution of mail production.
 

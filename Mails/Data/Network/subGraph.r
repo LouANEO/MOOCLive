@@ -37,3 +37,6 @@ subGraph = function(folder)
 	write.table(edges, paste(folder,"/Network/edgesBackbone.txt",sep=""), sep="\t", col.names=TRUE, row.names=FALSE)
 	write.table(nodes, paste(folder,"/Network/nodesBackbone.txt",sep=""), sep="\t", col.names=TRUE, row.names=FALSE)
 }
+
+args <- commandArgs()
+subGraph(args[6])

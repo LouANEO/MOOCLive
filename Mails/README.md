@@ -73,8 +73,12 @@ Run the command ./runLanguageProcessing.sh $PATH $GROUP $LANGUAGE
 - $GROUP needs to be set to the number of the cluster analysed
 - $LANGUAGE gives the language in which the analyse is performed (french for this study)
 
-
 This step performs a text mining anlyse of the subjects of mails posted by the members of a group identified previoulsy.
+Some R packages are needed: 
+- stringr (https://cran.r-project.org/web/packages/stringr/)
+- tm (https://cran.r-project.org/web/packages/tm/)
+- wordcloud (https://cran.r-project.org/web/packages/wordcloud/) 
+- RColorBrewer (https://cran.r-project.org/web/packages/RColorBrewer/).
 
 The code run constructBase.r and traceCloud.r in Data/LanguageProcessing to generate a wordcloud of the group most commonly used words.
 

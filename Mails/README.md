@@ -1,13 +1,19 @@
 This repository contains code to extract data from the mails extracted from the database of exchanges on the liste XXX@mail.com 
 between january 2013 and may 2016.
 
+This study is composed of several steps, each of them being run entirely by a runStep.sh bash code. The specific codes for each step are stocked in dedicated folders named after the step in "Data". Most of the results are written in the folder "Results", some temporary results are directly written in the folder dedicated to the step performed.
+The steps of the study and the way to run them are detailed thereafter in "#Howto". They are described in the order in which they should be performed.
+
+Before doing any work, the MIME files stocked in "archives_mail" must be converted from MIME format to TXT. 
+
 ## CONVERSION
 
 The mails extracted directly from the database are registered in MIME format: we used the software TotalMailConverter to extract data from these files and create .txt files.
 
-## FOLDER "DATA"
+## STRUCTUREOF THE REPOSITORY
 
-The folder "Data" can be downloaded to have the data and the structure of files needed to execute the following bash files.
+The folder "Data" can be downloaded to have the data and the structure of files needed to execute the bash files.
+You might have to make each bash file executable using chmod before being able to run them.
 
 It contains 8 folders:
 - archivesMail (the initial data files)

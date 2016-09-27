@@ -11,3 +11,4 @@ sed -i '$d' $1/Clustering/nodesClus.txt
 sed -i '1d' $1/Clustering/nodesClus.txt
 
 Rscript $1/Clustering/convert2.r $1
+cp $1/Network/edgesWeighted.txt $1/Clustering/edgesClus.txt

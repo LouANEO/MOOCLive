@@ -24,7 +24,7 @@ statTemporalGroupes = function(folder)
 	monthInDay = month[cbind(as.integer(data$Month),year[match(as.integer(data$Year),year[,1]),3])]
 	monthInSecond = monthInDay * 24 * 60 * 60
 
-	maxGpe = max(gpe[,2])
+	maxGpe = max(gpe$Group)
 
 	################# Aggregation by month #################
 

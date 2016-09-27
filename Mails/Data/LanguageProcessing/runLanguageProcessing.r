@@ -17,7 +17,7 @@ runLanguageProcessing = function(folder,group,language)
 
 	data = read.table(paste(folder,"/Extraction/data.txt",sep=""),sep="\t",header=TRUE)
 	nodes = read.table(paste(folder,"/Clustering/nodesClus.txt",sep=""),sep="\t",header=TRUE)
-	stopWords = c(t(read.table(paste(folder,"/TraitementLanguage/stopWords_",language,".txt",sep=""), sep='')))
+	stopWords = c(t(read.table(paste(folder,"/LanguageProcessing/stopWords_",language,".txt",sep=""), sep='')))
 
 	nodesGroup = nodes[nodes$Group==group,]
         data = data[which(!is.na(match(data$Sender,nodesGroup[,1]))),]

@@ -50,8 +50,6 @@ constructBase = function(listText,language,stopWords)
 
 	mots <- TermDocumentMatrix(docs)
 
-	mots$v = mots$v/floor(data[mots$j,2]/10+1)
-
 	s = sort.int(aggregate(mots$v,list(mots$i),sum)[,2],index.return=TRUE)[2]$ix
 	resul = mots$dimnames$Terms[rev(s)]
 

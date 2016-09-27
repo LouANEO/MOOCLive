@@ -23,7 +23,7 @@ constructBase = function(listText,language,stopWords)
 	myDocument <- listText	
 	docs <- Corpus(VectorSource(myDocument))
 	
-	docs <- tm_map(docs, content_transformer(tolower))
+	docs <- tm_map(docs, PlainTextDocument)
 
 	# Supprimer les nombres
 	docs <- tm_map(docs, removeNumbers)

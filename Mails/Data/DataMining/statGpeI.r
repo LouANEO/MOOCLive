@@ -19,7 +19,7 @@ statGpeI = function(folder, gpe)
 
 	# Select the posts by group i
 	vec = rep(1,length(data[,1]))
-	vec[which(is.na(match(data[,9],unique(groupes[groupes[,2] == gpe,1]))))]=0
+	vec[which(is.na(match(data$Sender,unique(groupes[groupes$Group == gpe,1]))))]=0
 
 	yearInDay = year[match(as.integer(data$Year),year[,1]),2]
 	yearInSecond = yearInDay * 24 * 60 *60

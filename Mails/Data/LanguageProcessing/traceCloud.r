@@ -15,7 +15,7 @@ traceCloud = function(folder,resul,group)
 	library("wordcloud")
 	library("RColorBrewer")
 
-	listeRm=as.matrix(read.table(paste(folder,"/TraitementLanguage/listeRm.txt",sep=""),sep="\t",header=FALSE, fill=TRUE))
+	listeRm=as.matrix(read.table(paste(folder,"/LanguageProcessing/listeRm.txt",sep=""),sep="\t",header=FALSE, fill=TRUE))
 
 	# Suppression des mots identifiés comme non pertinents du nuage de mots (exemple: les mots de la recherche Gogogle, dont la présence est attendue)
 	nuage = resul[which(is.na(match(as.matrix(resul[,1]),as.vector(t(listeRm))))),]
